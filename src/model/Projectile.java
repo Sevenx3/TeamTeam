@@ -25,4 +25,16 @@ public class Projectile {
 		Point newPoint = new Point();
 		pos.y += data.getSpeed();
 	}
+
+	public Point getPos() {
+		return pos;
+	}
+
+	public boolean isPlayer() {
+		return player;
+	}
+
+	public ProjectileEnum getData() {
+		return data;
+	}
 }
