@@ -24,4 +24,8 @@ public class ShipController {
 	public ArrayList<Ship> getShips() {
 		return ships;
 	}
+	
+	public void updateShips() {
+		//TODO: MARC
+	}
 }
