@@ -17,13 +17,15 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import model.Projectile;
+import model.Ship;
 
 
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		
-		MainController mainController = new MainController();
+			MainController mainController = new MainController();
 			Group root = new Group();
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
@@ -69,38 +71,37 @@ public class Main extends Application {
 		            Duration.seconds(0.017),                // 60 FPS
 		            new EventHandler<ActionEvent>()
 		            {
-		            	int startX = 400;
-		    	        int startY = 800;
-		    	        int xCoord = -1;
-		    	        int yCoord = -1;
-		            	
 		                public void handle(ActionEvent ae)
 		                {
-		                	
+		                	//Clear Frame
 		                    gc.clearRect(0, 0, 980, 980);
+		                    //Draw Background
 		                    gc.drawImage(space, 0, 0);
-		                    if(xCoord == -1){
-		                    	xCoord = startX;
+		                   
+		                    //Get Render Data
+		                    Ship playerShip = mainController.getShipController().getShips().get(0);
+		                    ArrayList<Ship> enemyShips = mainController.getShipController().getShips();
+		                    enemyShips.remove(0);
+		                    ArrayList<Projectile> fProjectiles = mainController.getProjectileController().getfProjectiles();
+		                    ArrayList<Projectile> eProjectiles = mainController.getProjectileController().geteProjectiles();
+		                    
+		                    //Player Input
+		                    if(input.contains("LEFT")){
+		                    	mainController.getInputController().playerShipMoveLeft();
 		                    }
-		                    if(yCoord == -1){
-		                    	yCoord = startY;
+		                    if(input.contains("RIGHT")){
+		                    	mainController.getInputController().playerShipMoveRight();
 		                    }
-		                    if(input.contains("LEFT") && xCoord > 0){
-		                    	xCoord -= 10;
+		                    if(input.contains("UP")){
+		                    	mainController.getInputController().playerShipMoveUp();
 		                    }
-		                    if(input.contains("RIGHT") && xCoord < 860){
-		                    	xCoord += 10;
-		                    }
-		                    if(input.contains("UP") && yCoord > 0){
-		                    	yCoord -= 10;
-		                    }
-		                    if(input.contains("DOWN") && yCoord < 860){
-		                    	yCoord += 10;
+		                    if(input.contains("DOWN")){
+		                    	mainController.getInputController().playerShipMoveDown();
 		                    }
 		                    if(input.contains("SPACE")){
-		                    	projectileController.addPlayerProjectile(xCoord, yCoord, 1);
+		                    	projectileController.addPlayerProjectile(x, y, 0);
 		                    }
-		                    gc.drawImage(ship, xCoord, yCoord);
+		                    
 		                }
 		            });
 			
@@ -111,8 +112,6 @@ public class Main extends Application {
 			gameloop.play();
 			
 			primaryStage.show();
-			
-		
 	}
 	
 	public static void main(String[] args) {
