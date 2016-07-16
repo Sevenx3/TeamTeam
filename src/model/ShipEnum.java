@@ -1,7 +1,7 @@
 package model;
 
 public enum ShipEnum {
-	PLAYER("","", 50, 1),
+	PLAYER("","../pictures/Ship.png", 50, 1),
 	ALIEN_NORMAL("Weiß", "", 10, 1),
 	ALIEN_HARD("Schwarz", "", 20, 1), 
 	ALIEN_BOSS("Gold", "", 100, 1),
