@@ -78,12 +78,18 @@ public class Main extends Application {
 		                    //Draw Background
 		                    gc.drawImage(space, 0, 0);
 		                   
+		                    //update
+		                    mainController.getShipController().updateShips();
+		                    
 		                    //Get Render Data
 		                    Ship playerShip = mainController.getShipController().getShips().get(0);
 		                    ArrayList<Ship> enemyShips = mainController.getShipController().getShips();
 		                    enemyShips.remove(0);
 		                    ArrayList<Projectile> fProjectiles = mainController.getProjectileController().getfProjectiles();
 		                    ArrayList<Projectile> eProjectiles = mainController.getProjectileController().geteProjectiles();
+		                    
+		                    
+		                    //check Collision
 		                    
 		                    //Player Input
 		                    if(input.contains("LEFT")){
