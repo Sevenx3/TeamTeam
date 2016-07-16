@@ -4,7 +4,7 @@ import java.awt.Point;
 
 public class Projectile {
 
-	private Point pos;
+	private Point position;
 	private boolean player;
 	private ProjectileEnum data;
 	
@@ -17,17 +17,17 @@ public class Projectile {
 		data = (type == 0) ? ProjectileEnum.LASER_10 : null;
 		data = (type == 0) ? ProjectileEnum.LASER_20 : null;
 		data = (type == 0) ? ProjectileEnum.LASER_30 : null;
-		this.pos = pos;
+		this.position = pos;
 		this.player = player;
 	}
 	
 	public void update(){
 		Point newPoint = new Point();
-		pos.y += data.getSpeed();
+		position.y += data.getSpeed();
 	}
 
-	public Point getPos() {
-		return pos;
+	public Point getPosition() {
+		return position;
 	}
 
 	public boolean isPlayer() {
