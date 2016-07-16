@@ -6,18 +6,22 @@ import model.Ship;
 import model.ShipEnum;
 
 public class ShipController {
-	ArrayList<Ship> ships = new ArrayList<Ship>();
+	private ArrayList<Ship> ships = new ArrayList<Ship>();
 	private MainController mainController;
 	
 	public ShipController(MainController maincontroller) {
 		this.mainController = mainController;
 	}
-	public void createNewShip(int x, int y, ShipEnum type) {
+	public void addNewShip(int x, int y, ShipEnum type) {
 		Ship newShip = new Ship(x, y, type);
 		ships.add(newShip);
 	}
 	
 	public void deleteShip(Ship ship) {
 		ships.remove(ship);
+	}
+	
+	public ArrayList<Ship> getShips() {
+		return ships;
 	}
 }

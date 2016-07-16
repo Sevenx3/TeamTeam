@@ -27,6 +27,16 @@ public class ProjectileController {
 		Projectile p = new Projectile(pos, type, false);
 		eProjectiles.add(p);
 	}
+
+	public ArrayList<Projectile> geteProjectiles() {
+		return eProjectiles;
+	}
+
+	public ArrayList<Projectile> getfProjectiles() {
+		return fProjectiles;
+	}
 	
-	
+	public void updateProjectiles() {
+		//TODO: MARC
+	}
 }
