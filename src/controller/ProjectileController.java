@@ -8,8 +8,8 @@ import model.Projectile;
 
 public class ProjectileController {
 
-	private ArrayList<Projectile> eProjectiles = new ArrayList<>();
-	private ArrayList<Projectile> fProjectiles = new ArrayList<>();
+	private ArrayList<Projectile> eProjectiles = new ArrayList<Projectile>();
+	private ArrayList<Projectile> fProjectiles = new ArrayList<Projectile>();
 	private MainController mainController;
 	
 	public ProjectileController(MainController mainController){

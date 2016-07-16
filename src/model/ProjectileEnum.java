@@ -29,7 +29,7 @@ public enum ProjectileEnum {
 		return name;
 	}
 	
-	public String getIMG(){
+	public String getImagePath(){
 		return img;
 	}
 	
