@@ -28,7 +28,11 @@ public enum ShipEnum {
 	}
 	
 	public String getImagePath(){
+<<<<<<< HEAD
 		return "";
+=======
+		return img;
+>>>>>>> master
 	}
 	
 	public int getHP(){

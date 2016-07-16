@@ -105,7 +105,7 @@ public class Main extends Application {
 		                    	mainController.getInputController().playerShipMoveDown();
 		                    }
 		                    if(input.contains("SPACE")){
-		                    	projectileController.addPlayerProjectile(x, y, 0);
+		                    	//projectileController.addPlayerProjectile(x, y, 0);
 		                    }
 		                    
 		                }

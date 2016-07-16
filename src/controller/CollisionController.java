@@ -19,19 +19,23 @@ public class CollisionController {
 	
 	private void removeOffScreenProjectiles(double canvasHeight, double canvasWidth) {
 		ProjectileController projectileController = mainController.getProjectileController();
+		
+		// remove all enemy projectiles, that are out of sight
 		Iterator<Projectile> iterator = projectileController.geteProjectiles().iterator();
 		while (iterator.hasNext()) {
 			Projectile p = iterator.next();
-			if (p.getPos().getX() > canvasWidth || p.getPos().getX() < 0 ||
-					p.getPos().getY() > canvasHeight || p.getPos().getY() < 0) {
+			if (p.getPosition().getX() > canvasWidth || p.getPosition().getX() < 0 ||
+					p.getPosition().getY() > canvasHeight || p.getPosition().getY() < 0) {
 				iterator.remove();
 			}
 		}
+		
+		// remove all friendly projectiles, that are out of sight
 		iterator = projectileController.getfProjectiles().iterator();
 		while (iterator.hasNext()) {
 			Projectile p = iterator.next();
-			if (p.getPos().getX() > canvasWidth || p.getPos().getX() < 0 ||
-					p.getPos().getY() > canvasHeight || p.getPos().getY() < 0) {
+			if (p.getPosition().getX() > canvasWidth || p.getPosition().getX() < 0 ||
+					p.getPosition().getY() > canvasHeight || p.getPosition().getY() < 0) {
 				iterator.remove();
 			}
 		}
@@ -39,6 +43,8 @@ public class CollisionController {
 	
 	private void removeOffScreenShips(double canvasHeight, double canvasWidth) {
 		ShipController shipController = mainController.getShipController();
+		
+		// remove all enemy ships, that are out of sight (player ship cannot be out of sight)
 		Iterator<Ship> iterator = shipController.getShips().iterator();
 		while (iterator.hasNext()) {
 			Ship s = iterator.next();
