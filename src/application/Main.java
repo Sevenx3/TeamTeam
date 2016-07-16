@@ -2,6 +2,7 @@ package application;
 	
 import java.util.ArrayList;
 
+import controller.MainController;
 import controller.ProjectileController;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -22,6 +23,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		
+		MainController mainController = new MainController();
 			Group root = new Group();
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
@@ -37,7 +39,7 @@ public class Main extends Application {
 			
 			ArrayList<String> input = new ArrayList<String>();
 			
-			ProjectileController projectileController = new ProjectileController();
+			ProjectileController projectileController = new ProjectileController(mainController);
 			 
 	        scene.setOnKeyPressed(
 	            new EventHandler<KeyEvent>()
