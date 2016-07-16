@@ -27,8 +27,8 @@ public enum ShipEnum {
 		return name;
 	}
 	
-	public String getIMG(){
-		return null;
+	public String getImagePath(){
+		return "";
 	}
 	
 	public int getHP(){
