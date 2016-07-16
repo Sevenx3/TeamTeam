@@ -2,23 +2,11 @@ package application;
 	
 import java.util.ArrayList;
 
+import controller.ProjectileController;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.stage.Stage;
-import javafx.util.Duration;
-import javafx.scene.Group;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
-import javafx.scene.layout.BorderPane;
-import javafx.animation.AnimationTimer;
-import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -27,6 +15,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 
 public class Main extends Application {
@@ -47,6 +36,8 @@ public class Main extends Application {
 			Image ship = new Image(getClass().getResource("Ship.png").toExternalForm());
 			
 			ArrayList<String> input = new ArrayList<String>();
+			
+			ProjectileController projectileController = new ProjectileController();
 			 
 	        scene.setOnKeyPressed(
 	            new EventHandler<KeyEvent>()
@@ -103,6 +94,9 @@ public class Main extends Application {
 		                    }
 		                    if(input.contains("DOWN") && yCoord < 860){
 		                    	yCoord += 10;
+		                    }
+		                    if(input.contains("SPACE")){
+		                    	projectileController.addPlayerProjectile(xCoord, yCoord, 1);
 		                    }
 		                    gc.drawImage(ship, xCoord, yCoord);
 		                }
