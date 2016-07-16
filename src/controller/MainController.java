@@ -1,7 +1,25 @@
 package controller;
 
 public class MainController {
-	ShipController shipController = new ShipController(this);
-	ProjectileController projectileController = new ProjectileController(this);
-	CollisionController collisionController = new CollisionController(this);
+	private ShipController shipController;
+	private ProjectileController projectileController;
+	private CollisionController collisionController;
+	
+	public MainController() {
+		shipController = new ShipController(this);
+		projectileController = new ProjectileController(this);
+		collisionController = new CollisionController(this);
+	}
+	
+	public ShipController getShipController() {
+		return shipController;
+	}
+
+	public ProjectileController getProjectileController() {
+		return projectileController;
+	}
+
+	public CollisionController getCollisionController() {
+		return collisionController;
+	}
 }
