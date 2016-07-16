@@ -27,4 +27,3 @@ public class Main extends Application {
 	public static void bullshit() {
 	}
 }
-test
