@@ -36,8 +36,7 @@ public class Main extends Application {
 			
 			GraphicsContext gc = canvas.getGraphicsContext2D();
 			
-			Image space = new Image(getClass().getResource("Space.png").toExternalForm());
-			Image ship = new Image(getClass().getResource("Ship.png").toExternalForm());
+			Image space = new Image(getClass().getResource("../pictures/space.png").toExternalForm());
 			
 			ArrayList<String> input = new ArrayList<String>();
 			
@@ -80,6 +79,10 @@ public class Main extends Application {
 		                   
 		                    //update
 		                    mainController.getShipController().updateShips();
+		                    mainController.getProjectileController().updateProjectiles();
+		                    
+		                    //check Collision
+		                    mainController.getCollisionController().removeOffScreenObjects();
 		                    
 		                    //Get Render Data
 		                    Ship playerShip = mainController.getShipController().getShips().get(0);
@@ -88,8 +91,35 @@ public class Main extends Application {
 		                    ArrayList<Projectile> fProjectiles = mainController.getProjectileController().getfProjectiles();
 		                    ArrayList<Projectile> eProjectiles = mainController.getProjectileController().geteProjectiles();
 		                    
-		                    
-		                    //check Collision
+		                    //Get Images
+		                    //Player Ship Image
+		                    Image pShipI = new Image(getClass().getResource(playerShip.getImagePath()).toExternalForm());
+		                    //Enemy Ships Images
+		                    ArrayList<Image> eShipI = new ArrayList<>();
+		                    for(int i = 0; i < enemyShips.size(); i++){
+		                    	eShipI.add(new Image(getClass().getResource(enemyShips.get(i).getImagePath()).toExternalForm()));
+		                    }
+		                    //Friendly Projetiles Images
+		                    ArrayList<Image> fProjI = new ArrayList<>();
+		                    for(int i = 0; i < fProjectiles.size(); i++){
+		                    	fProjI.add(new Image(getClass().getResource(fProjectiles.get(i).getImagePath()).toExternalForm()));
+		                    }
+		                    //Enemy Projectiles Images
+		                    ArrayList<Image> eProjI = new ArrayList<>();
+		                    for(int i = 0; i < fProjectiles.size(); i++){
+		                    	eProjI.add(new Image(getClass().getResource(eProjectiles.get(i).getImagePath()).toExternalForm()));
+		                    }
+		                    //Render
+		                    gc.drawImage(pShipI, playerShip.getPosition().getX(), playerShip.getPosition().getY());
+		                    for(int i = 0; i < eShipI.size(); i++){
+		                    	gc.drawImage(eShipI.get(i), enemyShips.get(i).getPosition().getX(), enemyShips.get(i).getPosition().getY());
+		                    }
+		                    for(int i = 0; i < fProjI.size(); i++){
+		                    	gc.drawImage(fProjI.get(i), fProjectiles.get(i).getPosition().getX(), fProjectiles.get(i).getPosition().getY());
+		                    }
+		                    for(int i = 0; i < eProjI.size(); i++){
+		                    	gc.drawImage(eProjI.get(i), eProjectiles.get(i).getPosition().getX(), eProjectiles.get(i).getPosition().getY());
+		                    }
 		                    
 		                    //Player Input
 		                    if(input.contains("LEFT")){
