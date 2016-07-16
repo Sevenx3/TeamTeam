@@ -24,8 +24,8 @@ public class CollisionController {
 		Iterator<Projectile> iterator = projectileController.geteProjectiles().iterator();
 		while (iterator.hasNext()) {
 			Projectile p = iterator.next();
-			if (p.getPos().getX() > canvasWidth || p.getPos().getX() < 0 ||
-					p.getPos().getY() > canvasHeight || p.getPos().getY() < 0) {
+			if (p.getPosition().getX() > canvasWidth || p.getPosition().getX() < 0 ||
+					p.getPosition().getY() > canvasHeight || p.getPosition().getY() < 0) {
 				iterator.remove();
 			}
 		}
@@ -34,8 +34,8 @@ public class CollisionController {
 		iterator = projectileController.getfProjectiles().iterator();
 		while (iterator.hasNext()) {
 			Projectile p = iterator.next();
-			if (p.getPos().getX() > canvasWidth || p.getPos().getX() < 0 ||
-					p.getPos().getY() > canvasHeight || p.getPos().getY() < 0) {
+			if (p.getPosition().getX() > canvasWidth || p.getPosition().getX() < 0 ||
+					p.getPosition().getY() > canvasHeight || p.getPosition().getY() < 0) {
 				iterator.remove();
 			}
 		}
