@@ -120,7 +120,6 @@ public class Main extends Application {
 		                    for(int i = 0; i < eProjI.size(); i++){
 		                    	gc.drawImage(eProjI.get(i), eProjectiles.get(i).getPosition().getX(), eProjectiles.get(i).getPosition().getY());
 		                    }
-		                    
 		                    //Player Input
 		                    if(input.contains("LEFT")){
 		                    	mainController.getInputController().playerShipMoveLeft();
