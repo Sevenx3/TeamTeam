@@ -37,6 +37,11 @@ public class ProjectileController {
 	}
 	
 	public void updateProjectiles() {
-		//TODO: MARC
+		for (Projectile candidate: eProjectiles){
+			candidate.update();
+		}
+		for (Projectile candidate: fProjectiles){
+			candidate.update();
+		}
 	}
 }

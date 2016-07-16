@@ -19,6 +19,11 @@ public class Ship {
 		this.type = type;
 	}
 	
+	public void update(){
+		Point newPosition = new Point(position.x, position.y + type.getSpeed());
+		position = (type.getName() == ShipEnum.PLAYER.getName()) ? position : newPosition;
+	}
+	
 	public void createShipFromString(String[] data){
 		for(String candidate: data){
 			int index = Integer.parseInt(candidate.substring(0, candidate.indexOf("|")));

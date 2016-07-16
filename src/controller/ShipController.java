@@ -26,6 +26,8 @@ public class ShipController {
 	}
 	
 	public void updateShips() {
-		//TODO: MARC
+		for (Ship candidate : ships){
+			candidate.update();
+		}
 	}
 }

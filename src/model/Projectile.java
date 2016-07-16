@@ -20,4 +20,9 @@ public class Projectile {
 		this.pos = pos;
 		this.player = player;
 	}
+	
+	public void update(){
+		Point newPoint = new Point();
+		pos.y += data.getSpeed();
+	}
 }
