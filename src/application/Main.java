@@ -26,6 +26,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		
 			MainController mainController = new MainController();
+			
 			Group root = new Group();
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
@@ -85,9 +86,8 @@ public class Main extends Application {
 		                    mainController.getCollisionController().removeOffScreenObjects(canvas.getHeight(), canvas.getWidth());
 		                    
 		                    //Get Render Data
-		                    Ship playerShip = mainController.getShipController().getShips().get(0);
-		                    ArrayList<Ship> enemyShips = mainController.getShipController().getShips();
-		                    enemyShips.remove(0);
+		                    Ship playerShip = mainController.getShipController().getPlayerShip();
+		                    ArrayList<Ship> enemyShips = mainController.getShipController().getEnemyShips();
 		                    ArrayList<Projectile> fProjectiles = mainController.getProjectileController().getfProjectiles();
 		                    ArrayList<Projectile> eProjectiles = mainController.getProjectileController().geteProjectiles();
 		                    

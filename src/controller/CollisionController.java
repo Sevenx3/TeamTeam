@@ -45,7 +45,7 @@ public class CollisionController {
 		ShipController shipController = mainController.getShipController();
 		
 		// remove all enemy ships, that are out of sight (player ship cannot be out of sight)
-		Iterator<Ship> iterator = shipController.getShips().iterator();
+		Iterator<Ship> iterator = shipController.getEnemyShips().iterator();
 		while (iterator.hasNext()) {
 			Ship s = iterator.next();
 			if (s.getPosition().getX() > canvasWidth || s.getPosition().getX() < 0 ||
