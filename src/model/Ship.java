@@ -52,7 +52,7 @@ public class Ship {
 		return position;
 	}
 	
-	public ShipEnum getShiptype() {
+	public ShipEnum getShipType() {
 		return type;
 	}
 	

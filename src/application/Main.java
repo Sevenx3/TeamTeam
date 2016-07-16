@@ -82,7 +82,7 @@ public class Main extends Application {
 		                    mainController.getProjectileController().updateProjectiles();
 		                    
 		                    //check Collision
-		                    mainController.getCollisionController().removeOffScreenObjects();
+		                    mainController.getCollisionController().removeOffScreenObjects(canvas.getHeight(), canvas.getWidth());
 		                    
 		                    //Get Render Data
 		                    Ship playerShip = mainController.getShipController().getShips().get(0);
@@ -93,21 +93,21 @@ public class Main extends Application {
 		                    
 		                    //Get Images
 		                    //Player Ship Image
-		                    Image pShipI = new Image(getClass().getResource(playerShip.getImagePath()).toExternalForm());
+		                    Image pShipI = new Image(getClass().getResource(playerShip.getShipType().getImagePath()).toExternalForm());
 		                    //Enemy Ships Images
 		                    ArrayList<Image> eShipI = new ArrayList<>();
 		                    for(int i = 0; i < enemyShips.size(); i++){
-		                    	eShipI.add(new Image(getClass().getResource(enemyShips.get(i).getImagePath()).toExternalForm()));
+		                    	eShipI.add(new Image(getClass().getResource(enemyShips.get(i).getShipType().getImagePath()).toExternalForm()));
 		                    }
 		                    //Friendly Projetiles Images
 		                    ArrayList<Image> fProjI = new ArrayList<>();
 		                    for(int i = 0; i < fProjectiles.size(); i++){
-		                    	fProjI.add(new Image(getClass().getResource(fProjectiles.get(i).getImagePath()).toExternalForm()));
+		                    	fProjI.add(new Image(getClass().getResource(fProjectiles.get(i).getData().getImagePath()).toExternalForm()));
 		                    }
 		                    //Enemy Projectiles Images
 		                    ArrayList<Image> eProjI = new ArrayList<>();
 		                    for(int i = 0; i < fProjectiles.size(); i++){
-		                    	eProjI.add(new Image(getClass().getResource(eProjectiles.get(i).getImagePath()).toExternalForm()));
+		                    	eProjI.add(new Image(getClass().getResource(eProjectiles.get(i).getData().getImagePath()).toExternalForm()));
 		                    }
 		                    //Render
 		                    gc.drawImage(pShipI, playerShip.getPosition().getX(), playerShip.getPosition().getY());
