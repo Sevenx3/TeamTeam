@@ -1,12 +1,12 @@
 package model;
 
 public enum ProjectileEnum {
-	LASER_10("Roter Laser", 10, 10, 5, "../pictures/Ship.png"),
-	LASER_20("Grüner Laser", 10, 20, 5, "../pictures/Ship.png"),
-	LASER_30("Blauer Laser", 10, 30, 6, "../pictures/Ship.png"),
-	E_LASER_10("Roter Laser", -10, 10, 5, "../pictures/Ship.png"),
-	E_LASER_20("Grüner Laser", -10, 20, 5, "../pictures/Ship.png"),
-	E_LASER_30("Blauer Laser", -10, 30, 6, "../pictures/Ship.png");
+	LASER_10("Roter Laser", 10, 10, 5, "../pictures/laser_red.png"),
+	LASER_20("Grüner Laser", 10, 20, 5, "../pictures/laser_green.png"),
+	LASER_30("Blauer Laser", 10, 30, 6, "../pictures/laser_blue.png"),
+	E_LASER_10("Roter Laser", -10, 10, 5, "../pictures/laser_red.png"),
+	E_LASER_20("Grüner Laser", -10, 20, 5, "../pictures/laser_green.png"),
+	E_LASER_30("Blauer Laser", -10, 30, 6, "../pictures/laser_blue.png");
 	
 	private String name;
 	private int speed;
