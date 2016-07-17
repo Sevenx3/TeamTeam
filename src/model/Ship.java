@@ -28,26 +28,25 @@ public class Ship {
 	}
 	
 	public void update(){
-		Point newPosition = new Point(position.x, position.y + type.getSpeed());
-		position = (type.getName() == ShipEnum.PLAYER.getName()) ? position : newPosition;
+		position = new Point(position.x, position.y + type.getSpeed());
 	}
-	
-	public void createShipFromString(String[] data){
-		for(String candidate: data){
-			int index = Integer.parseInt(candidate.substring(0, candidate.indexOf("|")));
-			ShipEnum newShip = (0 == index) ? ShipEnum.PLAYER : null;
-			newShip = (0 == index) ? ShipEnum.ALIEN_EASY : null;
-			newShip = (0 == index) ? ShipEnum.ALIEN_NORMAL : null;
-			newShip = (0 == index) ? ShipEnum.ALIEN_HARD : null;
-			newShip = (0 == index) ? ShipEnum.ALIEN_BOSS : null;
-			type = newShip;
-			int xCord = Integer.parseInt(candidate.substring(candidate.indexOf("|")+1));
-			int yCord = Integer.parseInt(candidate.substring(candidate.indexOf(" ")+1, candidate.indexOf("?")));
-			position = new Point(xCord,yCord);
-		}
-		
-	}
-	
+
+//	public void createShipFromString(String[] data){
+//		for(String candidate: data){
+//			int index = Integer.parseInt(candidate.substring(0, candidate.indexOf("|")));
+//			ShipEnum newShip = (0 == index) ? ShipEnum.PLAYER : null;
+//			newShip = (0 == index) ? ShipEnum.ALIEN_EASY : null;
+//			newShip = (0 == index) ? ShipEnum.ALIEN_NORMAL : null;
+//			newShip = (0 == index) ? ShipEnum.ALIEN_HARD : null;
+//			newShip = (0 == index) ? ShipEnum.ALIEN_BOSS : null;
+//			type = newShip;
+//			int xCord = Integer.parseInt(candidate.substring(candidate.indexOf("|")+1));
+//			int yCord = Integer.parseInt(candidate.substring(candidate.indexOf(" ")+1, candidate.indexOf("?")));
+//			position = new Point(xCord,yCord);
+//		}
+//		
+//	}
+
 	public void setPosition(int x, int y) {
 		position = new Point(x, y);
 	}

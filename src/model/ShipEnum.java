@@ -25,6 +25,13 @@ public enum ShipEnum {
 		this.sizeY = sizeY;
 	}
 	
+	public int getSizeX(){
+		return sizeX;
+	}
+	
+	public int getSizeY(){
+		return sizeY;
+	}
 	
 	
 	public int getSpeed(){
