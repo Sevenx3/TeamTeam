@@ -8,12 +8,14 @@ import model.Projectile;
 
 public class ProjectileController {
 
-	private ArrayList<Projectile> eProjectiles = new ArrayList<Projectile>();
-	private ArrayList<Projectile> fProjectiles = new ArrayList<Projectile>();
+	private ArrayList<Projectile> eProjectiles;
+	private ArrayList<Projectile> fProjectiles;
 	private MainController mainController;
 	
 	public ProjectileController(MainController mainController){
 		this.mainController = mainController;
+		eProjectiles = new ArrayList<Projectile>();
+		fProjectiles = new ArrayList<Projectile>();
 	}
 	
 	public void addPlayerProjectile(int x, int y, int type){
@@ -22,7 +24,7 @@ public class ProjectileController {
 		fProjectiles.add(newProjectile);
 	}
 	
-	private void addEnemyProjectile(int x, int y, int type){
+	public void addEnemyProjectile(int x, int y, int type){
 		Point pos = new Point(x,y);
 		Projectile p = new Projectile(pos, type, false);
 		eProjectiles.add(p);

@@ -7,23 +7,31 @@ public class Projectile {
 	private Point position;
 	private boolean player;
 	private ProjectileEnum data;
-	
-	
+
+
 	public Projectile(){
-		
+
 	}
-	
+
 	public Projectile(Point pos, int type, boolean player){
-		data = (type == 0) ? ProjectileEnum.LASER_10 : null;
-		data = (type == 0) ? ProjectileEnum.LASER_20 : null;
-		data = (type == 0) ? ProjectileEnum.LASER_30 : null;
+		switch (type) {
+		case 0:
+			data = ProjectileEnum.LASER_10;
+			break;
+		case 1:
+			data = ProjectileEnum.LASER_20;
+			break;
+		case 2:
+			data = ProjectileEnum.LASER_30;
+			break;
+		default:
+		}
 		this.position = pos;
 		this.player = player;
 	}
-	
+
 	public void update(){
-		Point newPoint = new Point();
-		position.y += data.getSpeed();
+		position.y -= data.getSpeed();
 	}
 
 	public Point getPosition() {

@@ -8,7 +8,8 @@ public class InputController {
 
 	private MainController mainController;
 	private Ship playerShip;
-
+	private int cooldown = 0;
+	
 	public InputController(MainController mainController){
 		this.mainController = mainController;
 		playerShip = mainController.getShipController().getPlayerShip();
@@ -45,5 +46,16 @@ public class InputController {
 			mainController.getShipController().movePlayerShipToPosition(position);
 		}
 	}
-
+	
+	public void addPlayerProjectile() {
+		if (cooldown == 0) {
+			Point position = mainController.getShipController().getPlayerShip().getPosition();
+			mainController.getProjectileController().addPlayerProjectile(position.x, position.y, 0);
+			cooldown = 180;
+		}
+	}
+	
+	public void reduceCooldown() {
+		if(cooldown > 0) cooldown--;
+	}
 }
