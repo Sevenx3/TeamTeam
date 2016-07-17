@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.Point;
+import java.awt.Rectangle;
 
 import stages.*;
 
@@ -8,15 +9,22 @@ public class Ship {
 
 	private ShipEnum type;
 	private Point position;
+	private Rectangle rec;
 	
 	public Ship(Point position, ShipEnum type) {
 		this.position = position;
 		this.type = type;
+		this.rec = new Rectangle(position.x, position.y, type.getSizeX(), type.getSizeY());
 	}
 	
 	public Ship(int x, int y, ShipEnum type) {
 		this.position = new Point(x, y);
 		this.type = type;
+		this.rec = new Rectangle(x, y, type.getSizeX(), type.getSizeY());
+	}
+	
+	public Rectangle getRectangle(){
+		return rec;
 	}
 	
 	public void update(){

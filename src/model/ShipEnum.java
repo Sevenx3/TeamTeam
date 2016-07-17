@@ -1,23 +1,31 @@
 package model;
 
+import java.awt.Rectangle;
+
 public enum ShipEnum {
-	PLAYER("","../pictures/Ship.png", 50, 1),
-	ALIEN_NORMAL("Weiß", "", 10, 1),
-	ALIEN_HARD("Schwarz", "", 20, 1), 
-	ALIEN_BOSS("Gold", "", 100, 1),
-	ALIEN_EASY("", "", 10, 1);
+	PLAYER("","../pictures/Ship.png", 50, 1, 73, 125),
+	ALIEN_NORMAL("Weiß", "", 10, 1, 0, 0),
+	ALIEN_HARD("Schwarz", "", 20, 1, 0, 0), 
+	ALIEN_BOSS("Gold", "", 100, 1, 0, 0),
+	ALIEN_EASY("", "", 10, 1, 0, 0);
 	
 	private String name;
 	private int hp;
 	private String img;
 	private int speed;
+	private int sizeX;
+	private int sizeY;
 	
-	private ShipEnum(String name, String path, int hp, int speed) {
+	private ShipEnum(String name, String path, int hp, int speed, int sizeX, int sizeY) {
 		this.name = name;
 		this.img = path;
 		this.hp = hp;
 		this.speed = speed;
+		this.sizeX = sizeX;
+		this.sizeY = sizeY;
 	}
+	
+	
 	
 	public int getSpeed(){
 		return speed;

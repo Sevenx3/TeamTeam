@@ -1,6 +1,7 @@
 package controller;
 
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 
 import model.Ship;
@@ -16,6 +17,7 @@ public class ShipController {
 		enemyShips = new ArrayList<Ship>();
 		this.playerShip = new Ship(490, 490, ShipEnum.PLAYER);
 	}
+	
 	public void addNewShip(int x, int y, ShipEnum type) {
 		Ship newShip = new Ship(x, y, type);
 		enemyShips.add(newShip);
