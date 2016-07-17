@@ -1,5 +1,6 @@
 package application;
 	
+import java.awt.Point;
 import java.util.ArrayList;
 
 import controller.MainController;
@@ -88,6 +89,8 @@ public class Main extends Application {
 		                    //Get Render Data
 		                    Ship playerShip = mainController.getShipController().getPlayerShip();
 		                    ArrayList<Ship> enemyShips = mainController.getShipController().getEnemyShips();
+		                    int test = mainController.getProjectileController().getfProjectiles().size();
+		                    System.out.println(test);
 		                    ArrayList<Projectile> fProjectiles = mainController.getProjectileController().getfProjectiles();
 		                    ArrayList<Projectile> eProjectiles = mainController.getProjectileController().geteProjectiles();
 		                    
@@ -99,7 +102,7 @@ public class Main extends Application {
 		                    for(int i = 0; i < enemyShips.size(); i++){
 		                    	eShipI.add(new Image(getClass().getResource(enemyShips.get(i).getShipType().getImagePath()).toExternalForm()));
 		                    }
-		                    //Friendly Projetiles Images
+		                    //Friendly Projectiles Images
 		                    ArrayList<Image> fProjI = new ArrayList<>();
 		                    for(int i = 0; i < fProjectiles.size(); i++){
 		                    	fProjI.add(new Image(getClass().getResource(fProjectiles.get(i).getData().getImagePath()).toExternalForm()));
@@ -134,7 +137,8 @@ public class Main extends Application {
 		                    	mainController.getInputController().playerShipMoveDown();
 		                    }
 		                    if(input.contains("SPACE")){
-		                    	//projectileController.addPlayerProjectile(x, y, 0);
+		                    	Point position = mainController.getShipController().getPlayerShip().getPosition();
+		                    	projectileController.addPlayerProjectile(position.x, position.y, 0);
 		                    }
 		                    
 		                }
