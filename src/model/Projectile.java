@@ -31,7 +31,7 @@ public class Projectile {
 	}
 
 	public void update(){
-		position.y += data.getSpeed();
+		position.y -= data.getSpeed();
 	}
 
 	public Point getPosition() {
