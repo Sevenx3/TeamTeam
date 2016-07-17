@@ -63,7 +63,6 @@ public class Main extends Application {
 					public void handle(KeyEvent e)
 					{
 						String code = e.getCode().toString();
-						System.out.println(e.getCode().toString());
 						input.remove( code );
 					}
 				});
@@ -73,43 +72,43 @@ public class Main extends Application {
 				Duration.seconds(0.017),                // 60 FPS
 				new EventHandler<ActionEvent>() {
 					public void handle(ActionEvent ae) {
-						//Clear Frame
+						// Clear Frame
 						gc.clearRect(0, 0, 980, 980);
-						//Draw Background
+						// Draw Background
 						gc.drawImage(space, 0, 0);
 
-						//update
+						// update
 						mainController.getShipController().updateShips();
 						mainController.getProjectileController().updateProjectiles();
 
-						//check Collision
+						// check Collision
 						mainController.getCollisionController().removeOffScreenObjects(canvas.getHeight(), canvas.getWidth());
 
-						//Get Render Data
+						// Get Render Data
 						Ship playerShip = mainController.getShipController().getPlayerShip();
 						ArrayList<Ship> enemyShips = mainController.getShipController().getEnemyShips();
 						ArrayList<Projectile> fProjectiles = mainController.getProjectileController().getfProjectiles();
 						ArrayList<Projectile> eProjectiles = mainController.getProjectileController().geteProjectiles();
 
-						//Get Images
-						//Player Ship Image
+						// Get Images
+						// Player Ship Image
 						Image pShipI = new Image(getClass().getResource(playerShip.getShipType().getImagePath()).toExternalForm());
-						//Enemy Ships Images
+						// Enemy Ships Images
 						ArrayList<Image> eShipI = new ArrayList<>();
 						for(int i = 0; i < enemyShips.size(); i++){
 							eShipI.add(new Image(getClass().getResource(enemyShips.get(i).getShipType().getImagePath()).toExternalForm()));
 						}
-						//Friendly Projectiles Images
+						// Friendly Projectiles Images
 						ArrayList<Image> fProjI = new ArrayList<>();
 						for(int i = 0; i < fProjectiles.size(); i++){
 							fProjI.add(new Image(getClass().getResource(fProjectiles.get(i).getData().getImagePath()).toExternalForm()));
 						}
-						//Enemy Projectiles Images
+						// Enemy Projectiles Images
 						ArrayList<Image> eProjI = new ArrayList<>();
 						for(int i = 0; i < eProjectiles.size(); i++){
 							eProjI.add(new Image(getClass().getResource(eProjectiles.get(i).getData().getImagePath()).toExternalForm()));
 						}
-						//Render
+						// Render
 						gc.drawImage(pShipI, playerShip.getPosition().getX(), playerShip.getPosition().getY());
 						for(int i = 0; i < eShipI.size(); i++){
 							gc.drawImage(eShipI.get(i), enemyShips.get(i).getPosition().getX(), enemyShips.get(i).getPosition().getY());
@@ -120,6 +119,7 @@ public class Main extends Application {
 						for(int i = 0; i < eProjI.size(); i++){
 							gc.drawImage(eProjI.get(i), eProjectiles.get(i).getPosition().getX(), eProjectiles.get(i).getPosition().getY());
 						}
+						// Spawn an alien
 						if (spawnTimer == 0) {
 							mainController.getShipController().addNewShip((int)(Math.random() * canvas.getWidth()), 0, ShipEnum.ALIEN_EASY);
 							spawnTimer = 120;
@@ -127,7 +127,7 @@ public class Main extends Application {
 						else {
 							spawnTimer--;
 						}
-						//Player Input
+						// Player Input
 						if(input.contains("LEFT")){
 							mainController.getInputController().playerShipMoveLeft();
 						}

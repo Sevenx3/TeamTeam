@@ -5,7 +5,7 @@ public enum ShipEnum {
 	ALIEN_NORMAL("Weiß", "", 10, 1),
 	ALIEN_HARD("Schwarz", "", 20, 1), 
 	ALIEN_BOSS("Gold", "", 100, 1),
-	ALIEN_EASY("", "", 10, 1);
+	ALIEN_EASY("", "../pictures/Ship.png", 10, 1);
 	
 	private String name;
 	private int hp;
