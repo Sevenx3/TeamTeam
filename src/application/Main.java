@@ -20,14 +20,16 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.Projectile;
 import model.Ship;
+import model.ShipEnum;
 
 
 public class Main extends Application {
+	private int spawnTimer = 120;
+	
 	@Override
 	public void start(Stage primaryStage) {
 
 		MainController mainController = new MainController();
-
 		Group root = new Group();
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
@@ -117,6 +119,13 @@ public class Main extends Application {
 						}
 						for(int i = 0; i < eProjI.size(); i++){
 							gc.drawImage(eProjI.get(i), eProjectiles.get(i).getPosition().getX(), eProjectiles.get(i).getPosition().getY());
+						}
+						if (spawnTimer == 0) {
+							mainController.getShipController().addNewShip((int)(Math.random() * canvas.getWidth()), 0, ShipEnum.ALIEN_EASY);
+							spawnTimer = 120;
+						}
+						else {
+							spawnTimer--;
 						}
 						//Player Input
 						if(input.contains("LEFT")){
